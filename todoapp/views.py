@@ -15,7 +15,9 @@ def add(request):
     return HttpResponseRedirect(reverse("todo:index"))
 
 def delete(request, pk):
-    return HttpResponse("You are deleting task %s" % pk)
+    task = Task.objects.get(pk = pk)
+    task.delete()
+    return HttpResponseRedirect(reverse("todo:index"))
 
 def info(request):
     return render(request, "todo/add.html")
