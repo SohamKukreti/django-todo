@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    {{error_message}}
     <form action = "{% url 'todo:add' %}" method = "post">
         {% csrf_token %}
         Task Name : <input type = "text" id = "task_name" name = "task_name">

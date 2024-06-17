@@ -10,9 +10,12 @@ def index(request):
     return render(request, "todo/index.html", {"tasks" : t})
 
 def add(request):
-    task = Task.objects.create(task_name = request.POST["task_name"], created_at = timezone.now())
-    task.save()
-    return HttpResponseRedirect(reverse("todo:index"))
+    if(request.POST["task_name"] == ""):
+        return render(request, "todo/add.html", {"error_message" : "Please Enter the name of the task."})
+    else:
+        task = Task.objects.create(task_name = request.POST["task_name"], created_at = timezone.now())
+        task.save()
+        return HttpResponseRedirect(reverse("todo:index"))
 
 def delete(request, pk):
     task = Task.objects.get(pk = pk)
