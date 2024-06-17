@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    {% load static %}
+    <link rel = "stylesheet" href="{% static 'todo/styles.css' %}">
 </head>
 <body>
+    <div class = "red">
     {{error_message}}
+    </div>
     <form action = "{% url 'todo:add' %}" method = "post">
         {% csrf_token %}
         Task Name : <input type = "text" id = "task_name" name = "task_name">
         <br>
-        <input type = "submit" value = "Add Task">
+        <br>
+        <input type = "submit" value = "Add Task" class = "button-3">
     </form>
 </body>
 </html>
