@@ -4,7 +4,7 @@ body {
   font-family: 'Space Mono', monospace; 
   display: flex;
   flex-direction: column;
-  max-width: 420px;
+  max-width: 620px;
   padding: 32px;
   margin: 60px auto;
   border: 1px solid #eee;
@@ -18,6 +18,7 @@ body {
   letter-spacing: -0.25px;
 }
 
+
 ol { padding-left: 50px; }
 li { 
   color: #4F4F4F; 
@@ -27,7 +28,7 @@ li {
   font-size: 16px;
   line-height: 20px;
   display: flex;
-  gap: 5%;
+  justify-content:space-between;
 
   &:before {
     content: '';
@@ -56,9 +57,6 @@ ol.alternating-colors {
   li:nth-child(even):before { border-color: #2378D5; }
 }
 
-a{
-    margin-bottom: 20px;
-}
 
 .button-3 {
   appearance: none;
@@ -119,4 +117,26 @@ a{
 
 .red{
     color: red;
+}
+
+.formbuttons{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 7px;
+}
+
+input{
+  font-size: 16px;
+  border-radius: 5px;
+  border: solid #298e46 1px;
+}
+
+textarea{
+  font-size: 16px;
+  border-radius: 5px;
+  border: solid #298e46 1px;
+  resize: none;
+  height: 100px;
+  width: 100%;
 }

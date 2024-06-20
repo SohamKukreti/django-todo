@@ -12,8 +12,11 @@
     {{error_message}}
     </div>
     <form action = "{% url 'todo:add' %}" method = "post">
-        {% csrf_token %}
-        Task Name : <input type = "text" id = "task_name" name = "task_name">
+        {% csrf_token %}<div>
+        <strong>Task Name : </strong><input type = "text" id = "task_name" name = "task_name"></div>
+        <br>
+        <strong>Task Description : </strong> 
+        <textarea name = "task_description" id = "task_description"></textarea>
         <br>
         <br>
         <input type = "submit" value = "Add Task" class = "button-3">

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    {% load static %}
+    <link rel = "stylesheet" href="{% static 'todo/styles.css' %}">
+</head>
+<body>
+    <h1>Edit Task</h1>
+    <div class = "red">
+        {{error_message}}
+        </div>
+        <form action = "{% url 'todo:add' %}" method = "post">
+            {% csrf_token %}<div>
+            <strong>Task Name : </strong><input type = "text" id = "task_name" name = "task_name" value="{{task.task_name}}"></div>
+            <br>
+            <strong>Task Description : </strong> 
+            <textarea name = "task_description" id = "task_description">{{task.task_description}}</textarea>
+            <br>
+            <br>
+            <input type = "submit" value = "Edit Task" class = "button-3">
+        </form>
+</body>
+</html>

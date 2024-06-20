@@ -15,11 +15,17 @@
         <li><div class = "item">
             <strong>{{task}}</strong> 
             <br>
-            Created on: {{task.created_at}}
+            <div>
+            <b>Description: </b> {{task.task_description}}</div>
+            <br>
+            Date: {{task.created_at.date}}
             <br>
             </div>
+            <div class = "formbuttons">
+            <a href = "{%url 'todo:edit' task.id %}"><button class = "button-3"><div class = "edit">Edit Task</button></a>
             <a href = "{%url 'todo:delete' task.id %}"><button class = "button-3"><div class = "delete">Delete Task</button></a>
-        </li>
+            </div>
+            </li>
     </ul>
     {% endfor %}
     <div class = "centre-button">
