@@ -12,7 +12,7 @@
     <div class = "red">
         {{error_message}}
         </div>
-        <form action = "{% url 'todo:add' %}" method = "post">
+        <form action = "{% url 'todo:modify' task.pk %}" method = "post">
             {% csrf_token %}<div>
             <strong>Task Name : </strong><input type = "text" id = "task_name" name = "task_name" value="{{task.task_name}}"></div>
             <br>

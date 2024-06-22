@@ -29,5 +29,16 @@ def info(request):
 
 def edit(request, pk):
     task = Task.objects.get(pk = pk)
-    task.delete()
     return render(request, "todo/edit.html", {"task" : task})
+
+def modify_value(request, pk):
+    task = Task.objects.get(pk = pk)
+    if(request.POST["task_name"] == ""):
+        return render(request, "todo/add.html", {"error_message" : "Please Enter the name of the task."})
+    elif(request.POST["task_description"] == ""):
+        return render(request, "todo/add.html", {"error_message" : "Please Enter the description of the task."})
+    else:
+        task.task_name = request.POST["task_name"]
+        task.task_description = request.POST["task_description"]
+        task.save()
+        return HttpResponseRedirect(reverse("todo:index"))
